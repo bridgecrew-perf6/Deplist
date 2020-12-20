@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nextcloud
+  labels:
+    app: nextcloud
+spec:
+  containers:
+    - name: nextcloud
+      image: nextcloud
+      env:
+        - name: MYSQL_DB_POSTGRES
+          value: mariadb
+        - name: MYSQL_DB_USER
+          value: nextcloud
+        - name: MYSQL_DB_PASSWORD
+          value: secret
+        - name: MYSQL_DB_HOST
+          value: admin
+      volumeMounts:
+        - name: nextcloud-pv
+          mountPath: /var/www/html
+  volumes:
+    - name: nextcloud-pv
+      persistentVolumeClaim:
+        claimName: nextcloud-pv-claim

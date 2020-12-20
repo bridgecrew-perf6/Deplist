@@ -15,12 +15,12 @@ Create a mariadb endpoint using mysql-service.yaml.
 kubectl create -f . /mysql-service.yaml
 ```
 
-Use nextcloud-strage.yaml to create a persistent volume for Nextcloud.
+Create a persistent volume for Nextcloud using nextcloud-storage.yaml.
 ```
 kubectl create -f . /nextcloud-storage.yaml
 ```
 
-Use nextcloud-pod.yaml to create a pod for nextcloud.
+Create a pod for Nextcloud using nextcloud-pod.yaml.
 ```
 kubectl create -f . /nextcloud-pod.yaml
 ```
